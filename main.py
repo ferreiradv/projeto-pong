@@ -38,8 +38,15 @@ bola.goto(0,0)
 bola.velx = 2
 bola.vely = 2
 
-
-
+#PLACAR
+placar = turtle.Turtle()
+placar.penup()
+placar.speed(0)
+placar.shape('square')
+placar.color('white')
+placar.hideturtle()
+placar.goto(0,300)
+placar.write('JOGADOR-1: 0  JOGADOR-2: 0 ', align='center', font=('Arial', 15, 'normal'))
 def up():
     y = player1.ycor()
     y += 20
