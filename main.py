@@ -35,7 +35,8 @@ bola.shape('circle')
 bola.shapesize(1,1)
 bola.color('white')
 bola.goto(0,0)
-bola.vel = 2
+bola.velx = 2
+bola.vely = 2
 
 
 
@@ -57,11 +58,19 @@ def down():
         player1.sety(-260)
 
 def move_bola():
-    bola.setx(bola.xcor() + bola.vel)
+    bola.setx(bola.xcor() + bola.velx)
+    bola.sety(bola.ycor() + bola.vely)
     if bola.xcor() > 600:
-        bola.vel *= -1
+        bola.velx *= -1
     elif bola.xcor() < -600:
-        bola.vel *= -1
+        bola.velx *= -1
+
+    if bola.ycor() > 350:
+        bola.sety(350)
+        bola.vely *= -1
+    elif bola.ycor() < -350:
+        bola.sety(-350)
+        bola.vely *= -1
 
 
 window.listen()
