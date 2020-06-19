@@ -11,5 +11,5 @@ Projeto do Jogo PONG em python
 <ol>
   <li>Movimentos nos eixos x e y</li>
   <li>Colisão da bolinha com os jogadores e parede</li>
-  <li>Movimentos nos eixos x e y</li>
+  <li>Placar de pontuação</li>
 </ol>
