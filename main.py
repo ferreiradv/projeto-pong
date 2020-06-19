@@ -35,8 +35,8 @@ bola.shape('circle')
 bola.shapesize(1,1)
 bola.color('white')
 bola.goto(0,0)
-bola.velx = 2
-bola.vely = 2
+bola.velx = 3
+bola.vely = 3
 
 #PLACAR
 placar = turtle.Turtle()
@@ -46,7 +46,9 @@ placar.shape('square')
 placar.color('white')
 placar.hideturtle()
 placar.goto(0,300)
-placar.write('JOGADOR-1: 0  JOGADOR-2: 0 ', align='center', font=('Arial', 15, 'normal'))
+placar.a = 0
+placar.b = 0
+placar.write('JOGADOR 1: {}  JOGADOR 2: {}'.format(placar.a,placar.b), align='center', font=('Arial', 15, 'normal'))
 def up():
     y = player1.ycor()
     y += 20
@@ -64,13 +66,22 @@ def down():
     if player1.ycor() <= -260:
         player1.sety(-260)
 
+def pontuacao():
+    placar.clear()
+    bola.velx *= -1
+    placar.write('JOGADOR 1: {}  JOGADOR 2: {}'.format(placar.a, placar.b), align='center', font=('Arial', 15, 'normal'))
+    bola.goto(0,0)
+
 def move_bola():
     bola.setx(bola.xcor() + bola.velx)
     bola.sety(bola.ycor() + bola.vely)
-    if bola.xcor() > 600:
-        bola.velx *= -1
-    elif bola.xcor() < -600:
-        bola.velx *= -1
+
+    if bola.xcor() > 640:
+        placar.a += 1
+        pontuacao()
+    elif bola.xcor() < -640:
+        placar.b += 1
+        pontuacao()
 
     if bola.ycor() > 350:
         bola.sety(350)
