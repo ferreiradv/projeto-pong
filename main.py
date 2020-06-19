@@ -35,8 +35,8 @@ bola.shape('circle')
 bola.shapesize(1,1)
 bola.color('white')
 bola.goto(0,0)
-bola.velx = 3
-bola.vely = 3
+bola.velx = -5
+bola.vely = 2
 
 #PLACAR
 placar = turtle.Turtle()
@@ -90,6 +90,15 @@ def move_bola():
         bola.sety(-350)
         bola.vely *= -1
 
+def colisao():
+
+    if bola.xcor() < -480 and bola.ycor() < player1.ycor() +90 and bola.ycor() > player1.ycor() -90:
+        bola.setx(-480)
+        bola.velx *= -1
+
+    elif bola.xcor() > 480 and bola.ycor() < player2.ycor() + 90 and bola.ycor() > player2.ycor() - 90:
+            bola.setx(480)
+            bola.velx *= -1
 
 window.listen()
 window.onkeypress(up,'w')
@@ -100,4 +109,5 @@ loop = True
 
 while loop:
     move_bola()
+    colisao()
     window.update()
