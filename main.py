@@ -6,7 +6,7 @@ import turtle
 window = turtle.Screen()
 window.setup(1280.720)
 window.title('PONG')
-window.bgcolor('black')
+window.bgpic('fundo.gif')
 
 #PENUP REMOVE O TRAÇO
 #PLAY1
@@ -35,7 +35,7 @@ bola.shape('circle')
 bola.shapesize(1,1)
 bola.color('white')
 bola.goto(0,0)
-bola.velx = -5
+bola.velx = -10
 bola.vely = 2
 
 #PLACAR
@@ -75,6 +75,8 @@ def pontuacao():
 def move_bola():
     bola.setx(bola.xcor() + bola.velx)
     bola.sety(bola.ycor() + bola.vely)
+
+    player2.sety(bola.ycor())
 
     if bola.xcor() > 640:
         placar.a += 1
